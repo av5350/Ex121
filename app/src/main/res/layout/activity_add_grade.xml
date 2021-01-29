@@ -14,103 +14,93 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <Spinner
-                android:id="@+id/studentName"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5" />
-
-            <Spinner
-                android:id="@+id/quarter"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3" />
 
-        <LinearLayout
+        <Spinner
+            android:id="@+id/studentName"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/subject"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:ems="10"
-                android:hint="Subject"
-                android:inputType="textPersonName" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5" />
-
-            <EditText
-                android:id="@+id/grade"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:ems="10"
-                android:hint="grade"
-                android:inputType="numberSigned" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
+            android:layout_weight="4" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2" />
 
+        <Spinner
+            android:id="@+id/quarter"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="Subject"
+            android:inputType="textPersonName" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/grade"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="Grade"
+            android:inputType="number" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
+            android:onClick="getData"
             android:text="Add Grade" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9" />
+            android:layout_weight="3" />
 
     </LinearLayout>
 
