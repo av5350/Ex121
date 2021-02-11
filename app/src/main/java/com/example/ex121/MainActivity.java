@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
             Intent si = new Intent(this, AddGrade.class);
             startActivity(si);
         }
+        else if (id == R.id.sort)
+        {
+            Intent si = new Intent(this, ShowDataActivity.class);
+            startActivity(si);
+        }
 
         return true;
     }

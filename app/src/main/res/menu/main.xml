@@ -2,14 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:title="Sort Values"
+        android:id="@+id/sort"
+        android:orderInCategory="100" />
+
+    <item
         android:title="Add Student"
         android:id="@+id/addStudent"
-        android:orderInCategory="100" />
+        android:orderInCategory="200" />
 
     <item
         android:title="Add Grade"
         android:id="@+id/addGrade"
-        android:orderInCategory="200" />
+        android:orderInCategory="300" />
 
     <item
         android:title="Credits"

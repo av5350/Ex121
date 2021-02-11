@@ -127,11 +127,9 @@ public class AddGrade extends AppCompatActivity implements AdapterView.OnItemSel
         switch (parent.getId())
         {
             case R.id.studentName:
-                //nameString = namesTbl.get(position);
                 nameIndex = position;
                 break;
             case R.id.quarter:
-                //quarterString = getResources().getStringArray(R.array.quarters)[position];
                 quarterIndex = position;
                 break;
         }

@@ -45,6 +45,7 @@ public class AddStudentActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Name must contains only letters!", Toast.LENGTH_SHORT).show();
         }
+        /*
         // Phone number must be 10 digits or 0!
         else if ((((studentPhoneString.length() != 10) && (!studentPhoneString.isEmpty())) ||
                 ((homePhoneString.length() != 10) && (!homePhoneString.isEmpty())) ||
@@ -52,7 +53,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 (momPhoneString.length() != 10)) && (!momPhoneString.isEmpty()))
         {
             Toast.makeText(this, "Phone number must to be 10 digits", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         else
         {
             ContentValues cv = new ContentValues();

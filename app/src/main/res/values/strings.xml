@@ -10,7 +10,9 @@
     </string-array>
 
     <string-array name="sortOptions">
-        <item>sort option</item>
-        <item>view all</item>
+        <item>Options</item>
+        <item>1 Stud Grades</item>
+        <item>Students Grades (low->high)</item>
+        <item>Students Grades (high->low)</item>
     </string-array>
 </resources>

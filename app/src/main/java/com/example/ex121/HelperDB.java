@@ -26,7 +26,7 @@ import static com.example.ex121.Students.HOME_PHONE;
 
 public class HelperDB extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Students.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     String strCreate, strDelete;
 
     public HelperDB(Context context) {
@@ -52,7 +52,7 @@ public class HelperDB extends SQLiteOpenHelper {
 
         // create the grades table
         strCreate="CREATE TABLE "+TABLE_GRADES;
-        strCreate+=" "+ID+" INTEGER,";
+        strCreate+=" ("+ID+" INTEGER,";
         strCreate+=" "+Subject+" TEXT,";
         strCreate+=" "+Quarter+" INTEGER,";
         strCreate+=" "+Grade+" INTEGER,";
@@ -65,6 +65,10 @@ public class HelperDB extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // delete the students table
         strDelete="DROP TABLE IF EXISTS "+TABLE_STUDENTS;
+        db.execSQL(strDelete);
+
+        // delete the grades table
+        strDelete="DROP TABLE IF EXISTS "+TABLE_GRADES;
         db.execSQL(strDelete);
 
         onCreate(db);
