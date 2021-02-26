@@ -195,7 +195,6 @@ public class AddGrade extends AppCompatActivity implements AdapterView.OnItemSel
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        // TODO: FILL IT - AND THE JAVADOC
         // go to add students activity if clicked
         if (id == R.id.addStudent)
         {
@@ -205,6 +204,11 @@ public class AddGrade extends AppCompatActivity implements AdapterView.OnItemSel
         else if (id == R.id.sort)
         {
             Intent si = new Intent(this, ShowDataActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.credits)
+        {
+            Intent si = new Intent(this, CreaditsActivity.class);
             startActivity(si);
         }
 

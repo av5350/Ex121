@@ -122,7 +122,6 @@ public class AddStudentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        // TODO: FILL IT - AND THE JAVADOC
         // go to add Grade activity if clicked
         if (id == R.id.addGrade)
         {
@@ -132,6 +131,11 @@ public class AddStudentActivity extends AppCompatActivity {
         else if (id == R.id.sort)
         {
             Intent si = new Intent(this, ShowDataActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.credits)
+        {
+            Intent si = new Intent(this, CreaditsActivity.class);
             startActivity(si);
         }
 

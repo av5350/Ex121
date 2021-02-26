@@ -389,7 +389,6 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        // TODO: FILL IT - AND THE JAVADOC
         // go to add students activity if clicked
         if (id == R.id.addStudent)
         {
@@ -399,6 +398,11 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
         else if (id == R.id.addGrade)
         {
             Intent si = new Intent(this, AddGrade.class);
+            startActivity(si);
+        }
+        else if (id == R.id.credits)
+        {
+            Intent si = new Intent(this, CreaditsActivity.class);
             startActivity(si);
         }
 

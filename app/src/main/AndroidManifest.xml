@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ex121">
-        <activity android:name=".ShowDataActivity"></activity>
+        <activity android:name=".CreaditsActivity"></activity>
+        <activity android:name=".ShowDataActivity" />
         <activity android:name=".AddGrade" />
         <activity android:name=".AddStudentActivity" />
         <activity android:name=".MainActivity">

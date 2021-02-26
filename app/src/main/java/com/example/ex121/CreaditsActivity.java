@@ -4,29 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 /**
- *  @author Itay Weintraub <av5350@bs.amalnet.k12.il>
- *  @version 1
- *  @since 6.01.2021
- *  The type Main activity.
+ * The type Credits activity.
+ * @author Itey Weintraub <av5350@bs.amalnet.k12.il>
+ * @version	1
+ * @since 6.01.2021
+ * short description:
+ *      This activity shows the credits of the app :)
  */
-public class MainActivity extends AppCompatActivity {
-    SQLiteDatabase db;
-    HelperDB hlp;
+public class CreaditsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        hlp = new HelperDB(this);
-        db = hlp.getWritableDatabase();
-        db.close();
+        setContentView(R.layout.activity_creadits);
     }
 
     /**
@@ -67,11 +62,6 @@ public class MainActivity extends AppCompatActivity {
         else if (id == R.id.sort)
         {
             Intent si = new Intent(this, ShowDataActivity.class);
-            startActivity(si);
-        }
-        else if (id == R.id.credits)
-        {
-            Intent si = new Intent(this, CreaditsActivity.class);
             startActivity(si);
         }
 
