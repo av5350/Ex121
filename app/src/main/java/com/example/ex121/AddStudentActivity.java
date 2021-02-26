@@ -1,18 +1,27 @@
 package com.example.ex121;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ *  @author Itay Weintraub <av5350@bs.amalnet.k12.il>
+ *  @version 1
+ *  @since 6.01.2021
+ *  The type Add student activity.
+ */
 public class AddStudentActivity extends AppCompatActivity {
     EditText studentName, studentPhone, dadName, dadPhone,
             momName, momPhone, homePhone, homeAddress;
-
     SQLiteDatabase db;
     HelperDB hlp;
 
@@ -31,6 +40,11 @@ public class AddStudentActivity extends AppCompatActivity {
         homeAddress = (EditText) findViewById(R.id.homeAddress);
     }
 
+    /**
+     * Gets data (include name, phone, address etc)
+     *
+     * @param view the view
+     */
     public void getData(View view) {
         String studentNameString = studentName.getText().toString();
         String studentPhoneString = studentPhone.getText().toString();
@@ -45,17 +59,9 @@ public class AddStudentActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Name must contains only letters!", Toast.LENGTH_SHORT).show();
         }
-        /*
-        // Phone number must be 10 digits or 0!
-        else if ((((studentPhoneString.length() != 10) && (!studentPhoneString.isEmpty())) ||
-                ((homePhoneString.length() != 10) && (!homePhoneString.isEmpty())) ||
-                ((dadPhoneString.length() != 10) && (!dadPhoneString.isEmpty())) ||
-                (momPhoneString.length() != 10)) && (!momPhoneString.isEmpty()))
-        {
-            Toast.makeText(this, "Phone number must to be 10 digits", Toast.LENGTH_SHORT).show();
-        }*/
         else
         {
+            // insert the data to the table
             ContentValues cv = new ContentValues();
 
             cv.put(Students.NAME, studentNameString);
@@ -66,21 +72,67 @@ public class AddStudentActivity extends AppCompatActivity {
             cv.put(Students.MOM_NAME, momNameString);
             cv.put(Students.MOM_PHONE, ((momPhoneString.equals("")) ? null : Integer.parseInt(momPhoneString)));
             cv.put(Students.ADDRESS, homeAddressString);
-            cv.put(Students.IS_ACTIVE, 1); // true
 
             hlp = new HelperDB(this);
             db = hlp.getWritableDatabase();
             db.insert(Students.TABLE_STUDENTS, null, cv);
             db.close();
+
+            Toast.makeText(this, "Student was added!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // <check if a string is full Alphabetic>
+    /**
+     * Check if a string is full Alphabetic
+     *
+     * @param input the input
+     * @return  if a string is full Alphabetic
+     */
     public static boolean checkAlphabetic(String input) {
         for (int i = 0; i != input.length(); ++i) {
             if (!Character.isLetter(input.charAt(i))) {
                 return false;
             }
+        }
+
+        return true;
+    }
+
+    /**
+     * Create the options menu
+     *
+     * @param menu the menu
+     * @return true if success
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    /**
+     * Where to go when the menu item was selected
+     *
+     * @param item The menu item that was selected.
+     *
+     * @return boolean Return false to allow normal menu processing to
+     *         proceed, true to consume it here.
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        // TODO: FILL IT - AND THE JAVADOC
+        // go to add Grade activity if clicked
+        if (id == R.id.addGrade)
+        {
+            Intent si = new Intent(this, AddGrade.class);
+            startActivity(si);
+        }
+        else if (id == R.id.sort)
+        {
+            Intent si = new Intent(this, ShowDataActivity.class);
+            startActivity(si);
         }
 
         return true;

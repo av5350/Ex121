@@ -9,6 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ *  @author Itay Weintraub <av5350@bs.amalnet.k12.il>
+ *  @version 1
+ *  @since 6.01.2021
+ *  The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     HelperDB hlp;
@@ -36,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * go to credits activity if it was clicked at the menu
+     * Where to go when the menu item was selected
      *
-     * @param item the item in menu that was clicked
-     * @return true - if it success
+     * @param item The menu item that was selected.
+     *
+     * @return boolean Return false to allow normal menu processing to
+     *         proceed, true to consume it here.
      */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

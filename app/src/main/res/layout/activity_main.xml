@@ -28,10 +28,21 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="Welcome to the app"
-            android:textColor="#52DC89"
-            android:textSize="24sp"
-            android:textStyle="bold|italic"
+            android:textColor="#000000"
+            android:textSize="27sp"
+            android:textStyle="bold"
             android:typeface="serif" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/study" />
 
         <Space
             android:layout_width="match_parent"

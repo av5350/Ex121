@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import static com.example.ex121.Grades.Active;
 import static com.example.ex121.Grades.Grade;
 import static com.example.ex121.Grades.ID;
 import static com.example.ex121.Grades.Quarter;
@@ -15,7 +14,6 @@ import static com.example.ex121.Grades.TABLE_GRADES;
 import static com.example.ex121.Students.ADDRESS;
 import static com.example.ex121.Students.DAD_NAME;
 import static com.example.ex121.Students.DAD_PHONE;
-import static com.example.ex121.Students.IS_ACTIVE;
 import static com.example.ex121.Students.KEY_ID;
 import static com.example.ex121.Students.MOM_NAME;
 import static com.example.ex121.Students.MOM_PHONE;
@@ -24,11 +22,22 @@ import static com.example.ex121.Students.PHONE;
 import static com.example.ex121.Students.TABLE_STUDENTS;
 import static com.example.ex121.Students.HOME_PHONE;
 
+/**
+ *  @author Itay Weintraub <av5350@bs.amalnet.k12.il>
+ *  @version 1
+ *  @since 6.01.2021
+ *  The type Helper db.
+ */
 public class HelperDB extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Students.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 5;
     String strCreate, strDelete;
 
+    /**
+     * Instantiates a new Helper db.
+     *
+     * @param context the context
+     */
     public HelperDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -45,22 +54,28 @@ public class HelperDB extends SQLiteOpenHelper {
         strCreate+=" "+DAD_PHONE+" INTEGER,";
         strCreate+=" "+MOM_NAME+" TEXT,";
         strCreate+=" "+MOM_PHONE+" INTEGER,";
-        strCreate+=" "+ADDRESS+" TEXT,";
-        strCreate+=" "+IS_ACTIVE+" INTEGER";
+        strCreate+=" "+ADDRESS+" TEXT";
         strCreate+=");";
         db.execSQL(strCreate);
 
         // create the grades table
         strCreate="CREATE TABLE "+TABLE_GRADES;
-        strCreate+=" ("+ID+" INTEGER,";
+        strCreate+=" ("+KEY_ID+" INTEGER PRIMARY KEY,";
+        strCreate+=" "+ID+" INTEGER,";
         strCreate+=" "+Subject+" TEXT,";
         strCreate+=" "+Quarter+" INTEGER,";
-        strCreate+=" "+Grade+" INTEGER,";
-        strCreate+=" "+Active+" INTEGER";
+        strCreate+=" "+Grade+" INTEGER";
         strCreate+=");";
         db.execSQL(strCreate);
     }
 
+    /**
+     * Called when the database needs to be upgraded.
+     *
+     * @param db The database.
+     * @param oldVersion The old database version.
+     * @param newVersion The new database version.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // delete the students table
