@@ -66,7 +66,7 @@ public class AddGrade extends AppCompatActivity implements AdapterView.OnItemSel
 
         namesTbl.add("Name");
 
-        crsr = db.query(Students.TABLE_STUDENTS, null, null, null, null, null, null);
+        crsr = db.query(Students.TABLE_STUDENTS, new String[]{Students.NAME}, null, null, null, null, null);
         int colName = crsr.getColumnIndex(Students.NAME);
 
         crsr.moveToFirst();

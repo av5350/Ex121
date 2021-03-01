@@ -14,6 +14,7 @@ import android.view.MenuItem;
  * @version	1
  * @since 6.01.2021
  * short description:
+ * 
  *      This activity shows the credits of the app :)
  */
 public class CreaditsActivity extends AppCompatActivity {

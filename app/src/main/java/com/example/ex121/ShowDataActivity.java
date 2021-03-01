@@ -132,7 +132,7 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
                     // the grade sort (and init the function parms)
                     db = hlp.getWritableDatabase();
 
-                    crsr = db.query(Students.TABLE_STUDENTS, null, selection, selectionArgs, null, null, null);
+                    crsr = db.query(Students.TABLE_STUDENTS, new String[]{Students.KEY_ID}, selection, selectionArgs, null, null, null);
                     int col1 = crsr.getColumnIndex(Students.KEY_ID);
 
                     crsr.moveToFirst();
@@ -175,7 +175,7 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
         {
             db = hlp.getWritableDatabase();
 
-            crsr = db.query(Students.TABLE_STUDENTS, null, Students.KEY_ID+"=?", selectionArgs, null, null, null);
+            crsr = db.query(Students.TABLE_STUDENTS, new String[]{Students.NAME}, Students.KEY_ID+"=?", selectionArgs, null, null, null);
             int colName = crsr.getColumnIndex(Students.NAME);
 
             crsr.moveToFirst();
@@ -188,11 +188,11 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
 
         // if its first option
         if (selection != null) {
-            crsr = db.query(Grades.TABLE_GRADES, null, selection, selectionArgs, null, null, orderBy);
+            crsr = db.query(Grades.TABLE_GRADES, new String[]{Grades.Quarter, Grades.Subject, Grades.Grade, Grades.ID, Grades.KEY_ID}, selection, selectionArgs, null, null, orderBy);
         }
         // its the 2 or 3 option
         else {
-            crsr = db.query(Grades.TABLE_GRADES, null, null, null, null, null, orderBy);
+            crsr = db.query(Grades.TABLE_GRADES, new String[]{Grades.Quarter, Grades.Subject, Grades.Grade, Grades.ID, Grades.KEY_ID}, null, null, null, null, orderBy);
         }
 
         int col1 = crsr.getColumnIndex(Grades.Quarter);
@@ -246,7 +246,7 @@ public class ShowDataActivity extends AppCompatActivity implements AdapterView.O
 
         db = hlp.getWritableDatabase();
 
-        crsr = db.query(Students.TABLE_STUDENTS, null, null, null, null, null, null);
+        crsr = db.query(Students.TABLE_STUDENTS, new String[]{Students.NAME}, null, null, null, null, null);
         int colName = crsr.getColumnIndex(Students.NAME);
 
         crsr.moveToFirst();
